@@ -1,0 +1,62 @@
+{
+  "nav.home": "Ana Sayfa",
+  "nav.projects": "Projeler",
+  "nav.contact": "İletişim",
+  "nav.themeLight": "Açık temaya geç",
+  "nav.themeDark": "Koyu temaya geç",
+  "nav.language": "Dili değiştir",
+
+  "hero.eyebrow": "Yapay Zekâ & Full Stack Geliştirici",
+  "hero.title": "Merhaba, ben Akif.",
+  "hero.subtitle": "Fikirleri uçtan uca ürüne dönüştürüyorum: arayüzden veritabanına, tasarımdan yayına.",
+  "hero.ctaProjects": "Projelerimi gör",
+  "hero.ctaContact": "Bana yaz",
+
+  "about.title": "Hakkımda",
+  "about.p1": "Yapay zekâ ve makine öğrenmesinden IoT'ye, mobil uygulamalardan web'e uzanan projeler geliştiriyorum. Bir fikri veriyle eğitmek, devreye bağlamak ya da arayüze dönüştürmek — hepsi aynı merakın parçası.",
+  "about.p2": "Aslen Trabzonluyum, Sakarya'da yaşıyorum.",
+  "about.photoAlt": "Muhammet Akif Ayan'ın fotoğrafı",
+
+  "skills.title": "Beceriler",
+  "skills.category.frontend": "Ön Yüz",
+  "skills.category.backend": "Arka Uç",
+  "skills.category.devops": "DevOps",
+  "skills.category.other": "Diğer",
+  "skills.levelLabel": "Seviye {{level}}/5",
+
+  "projects.title": "Projelerim",
+  "projects.featured": "Öne Çıkan Projeler",
+  "projects.viewAll": "Tüm projeleri gör",
+  "projects.viewCode": "Kodu Gör",
+  "projects.viewLive": "Canlı İncele",
+  "projects.details": "Detaylar",
+  "projects.back": "Projelere dön",
+  "projects.notFound": "Proje bulunamadı",
+  "projects.readmeError": "README yüklenemedi. Projeyi GitHub üzerinden inceleyebilirsin.",
+  "projects.gallery": "Ekran Görüntüleri",
+  "projects.demoVideo": "Tanıtım Videosu",
+  "projects.empty": "Henüz proje eklenmedi. Yakında burada olacaklar.",
+
+  "contact.title": "İletişim",
+  "contact.subtitle": "Bir proje fikrin mi var, yoksa sadece merhaba mı demek istiyorsun? Mesajın doğrudan bana ulaşır.",
+  "contact.name": "Adın",
+  "contact.email": "E-posta adresin",
+  "contact.subject": "Konu (isteğe bağlı)",
+  "contact.body": "Mesajın",
+  "contact.send": "Mesajı gönder",
+  "contact.sending": "Gönderiliyor…",
+  "contact.success": "Mesajın ulaştı. En kısa sürede dönüş yapacağım.",
+  "contact.error": "Mesaj gönderilemedi. Lütfen tekrar dene ya da doğrudan e-posta gönder.",
+  "contact.emailDirect": "Ya da doğrudan yaz:",
+
+  "common.loading": "Yükleniyor…",
+  "common.notConfigured": "Veritabanı bağlantısı henüz kurulmadı. İçerik yakında burada olacak.",
+  "common.fetchFailed": "İçerik yüklenemedi. Lütfen sayfayı yenile.",
+
+  "footer.builtWith": "React, Supabase ve bolca çay ile yapıldı.",
+  "footer.github": "GitHub",
+  "footer.linkedin": "LinkedIn",
+
+  "notFound.title": "Sayfa bulunamadı",
+  "notFound.goHome": "Ana sayfaya dön"
+}

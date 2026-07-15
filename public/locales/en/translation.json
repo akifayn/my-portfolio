@@ -1,0 +1,61 @@
+{
+  "nav.home": "Home",
+  "nav.projects": "Projects",
+  "nav.contact": "Contact",
+  "nav.themeLight": "Switch to light theme",
+  "nav.themeDark": "Switch to dark theme",
+  "nav.language": "Change language",
+
+  "hero.eyebrow": "AI & Full Stack Developer",
+  "hero.title": "Hi, I'm Akif.",
+  "hero.subtitle": "I turn ideas into products end to end: from interface to database, from design to deployment.",
+  "hero.ctaProjects": "See my projects",
+  "hero.ctaContact": "Write to me",
+
+  "about.title": "About Me",
+  "about.p1": "I build projects that stretch from artificial intelligence and machine learning to IoT, from mobile apps to the web. Training an idea with data, wiring it to a circuit, or turning it into an interface — it's all the same curiosity.",
+  "about.photoAlt": "Photo of Muhammet Akif Ayan",
+
+  "skills.title": "Skills",
+  "skills.category.frontend": "Frontend",
+  "skills.category.backend": "Backend",
+  "skills.category.devops": "DevOps",
+  "skills.category.other": "Other",
+  "skills.levelLabel": "Level {{level}}/5",
+
+  "projects.title": "My Projects",
+  "projects.featured": "Featured Projects",
+  "projects.viewAll": "See all projects",
+  "projects.viewCode": "View Code",
+  "projects.viewLive": "View Live",
+  "projects.details": "Details",
+  "projects.back": "Back to projects",
+  "projects.notFound": "Project not found",
+  "projects.readmeError": "The README couldn't load. You can view the project on GitHub.",
+  "projects.gallery": "Screenshots",
+  "projects.demoVideo": "Demo Video",
+  "projects.empty": "No projects added yet. They'll be here soon.",
+
+  "contact.title": "Contact",
+  "contact.subtitle": "Have a project idea, or just want to say hello? Your message reaches me directly.",
+  "contact.name": "Your name",
+  "contact.email": "Your email address",
+  "contact.subject": "Subject (optional)",
+  "contact.body": "Your message",
+  "contact.send": "Send message",
+  "contact.sending": "Sending…",
+  "contact.success": "Your message arrived. I'll get back to you soon.",
+  "contact.error": "The message couldn't be sent. Please try again or email me directly.",
+  "contact.emailDirect": "Or write directly:",
+
+  "common.loading": "Loading…",
+  "common.notConfigured": "The database connection isn't set up yet. Content is coming soon.",
+  "common.fetchFailed": "Content couldn't load. Please refresh the page.",
+
+  "footer.builtWith": "Built with React, Supabase and plenty of tea.",
+  "footer.github": "GitHub",
+  "footer.linkedin": "LinkedIn",
+
+  "notFound.title": "Page not found",
+  "notFound.goHome": "Back to home"
+}
