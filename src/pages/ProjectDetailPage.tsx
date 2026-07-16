@@ -81,6 +81,11 @@ export default function ProjectDetailPage() {
   // Kolonlar henüz eklenmemişse (myzoo-media.sql çalıştırılmadan) alanlar undefined gelir
   const gallery = project.gallery_urls ?? []
 
+  // YouTube bağlantıları <video> yerine gömülü oynatıcıyla gösterilir
+  const youtubeId = project.video_url?.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/,
+  )?.[1]
+
   // README içindeki göreli görsel/bağlantı yolları repo adresine çevrilir
   const transformUrl = (url: string, key: string) => {
     if (/^(https?:|#|mailto:)/.test(url)) return url
@@ -169,12 +174,22 @@ export default function ProjectDetailPage() {
           <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-inkdark/50 dark:text-muted">
             {t('projects.demoVideo')}
           </h2>
-          <video
-            src={project.video_url}
-            controls
-            preload="metadata"
-            className="clip-notch max-h-[70vh] border border-inkdark/10 dark:border-frost/10"
-          />
+          {youtubeId ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+              title={title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="clip-notch aspect-video w-full border border-inkdark/10 dark:border-frost/10"
+            />
+          ) : (
+            <video
+              src={project.video_url}
+              controls
+              preload="metadata"
+              className="clip-notch max-h-[70vh] border border-inkdark/10 dark:border-frost/10"
+            />
+          )}
         </div>
       )}
 
