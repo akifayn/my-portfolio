@@ -77,6 +77,112 @@ export default function HomePage() {
           />
           <div className="max-w-xl space-y-4 leading-relaxed text-inkdark/80 dark:text-frost/80">
             <p>{t('about.p1')}</p>
+            <p>{t('about.p2')}</p>
+            <a
+              href="/cv/muhammet-akif-ayan-cv.pdf"
+              download
+              className="clip-notch inline-flex items-center gap-2 bg-crimson px-6 py-2.5 font-mono text-xs font-medium uppercase tracking-[0.15em] text-white transition-all hover:shadow-glow-crimson"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M8 2v8m0 0 3-3m-3 3L5 7M3 13h10" />
+              </svg>
+              {t('about.downloadCv')}
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          {/* Eğitim + Dil + Hobiler */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-inkdark/50 dark:text-muted">
+                {t('about.education.title')}
+              </h3>
+              <div className="clip-notch border border-inkdark/10 bg-white p-5 dark:border-frost/10 dark:bg-surface">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <p className="font-display font-bold uppercase tracking-wide">
+                    {t('about.education.school')}
+                  </p>
+                  <span className="font-mono text-xs text-inkdark/50 dark:text-muted">
+                    {t('about.education.period')}
+                  </span>
+                </div>
+                <p className="mt-1 text-sm text-inkdark/70 dark:text-frost/70">
+                  {t('about.education.degree')}
+                </p>
+                <p className="mt-2 font-mono text-xs text-volt">{t('about.education.gpa')}</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-inkdark/50 dark:text-muted">
+                {t('about.languages.title')}
+              </h3>
+              <div className="clip-notch border border-inkdark/10 bg-white p-5 dark:border-frost/10 dark:bg-surface">
+                <div className="flex items-center justify-between">
+                  <p className="font-display font-bold uppercase tracking-wide">
+                    {t('about.languages.english')}
+                  </p>
+                  <span className="border border-volt/30 bg-volt/5 px-2 py-0.5 font-mono text-xs text-volt">
+                    {t('about.languages.englishLevel')}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-inkdark/70 dark:text-frost/70">
+                  {t('about.languages.englishDetail')}
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-inkdark/50 dark:text-muted">
+                {t('about.hobbies.title')}
+              </h3>
+              <ul className="flex flex-wrap gap-2">
+                {t('about.hobbies.list')
+                  .split(',')
+                  .map((hobby) => (
+                    <li
+                      key={hobby}
+                      className="border border-volt/30 bg-volt/5 px-2 py-0.5 font-mono text-xs text-volt"
+                    >
+                      {hobby.trim()}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Kısa tarihçe */}
+          <div>
+            <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-inkdark/50 dark:text-muted">
+              {t('about.timeline.title')}
+            </h3>
+            <ol className="relative space-y-6 border-l border-inkdark/15 pl-6 dark:border-frost/15">
+              {(['uni', 'trt', 'saski', 'hubtuam', 'grad'] as const).map((key) => (
+                <li key={key} className="relative">
+                  <span
+                    className="absolute -left-[1.85rem] top-1.5 h-2.5 w-2.5 rotate-45 bg-crimson"
+                    aria-hidden="true"
+                  />
+                  <p className="font-mono text-xs text-volt">{t(`about.timeline.${key}.year`)}</p>
+                  <p className="mt-0.5 font-display font-bold uppercase tracking-wide">
+                    {t(`about.timeline.${key}.heading`)}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-inkdark/70 dark:text-frost/70">
+                    {t(`about.timeline.${key}.desc`)}
+                  </p>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
