@@ -27,7 +27,8 @@ function NotFound() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    // future flag'leri v7 davranışına şimdiden geçirir; konsoldaki React Router uyarılarını kapatır
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">
