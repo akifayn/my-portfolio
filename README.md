@@ -1,32 +1,42 @@
-# React + TypeScript + Vite
+# Muhammet Akif Ayan — Kişisel Portfolyo
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+🌐 **Canlı site:** [akifayan.com](https://akifayan.com)
 
-Currently, two official plugins are available:
+Yapay Zekâ & Full Stack Geliştirici Muhammet Akif Ayan'ın kişisel portfolyo sitesi.
+İki dilli (Türkçe/İngilizce), Supabase destekli, tam dinamik bir Single Page Application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Özellikler
 
-## React Compiler
+- 🌍 Türkçe / İngilizce dil desteği (i18next) — sayfa yenilemeden dil değişimi
+- 🗄️ Projeler ve beceriler Supabase'den dinamik olarak çekilir
+- 📬 İletişim formu mesajları doğrudan Supabase `messages` tablosuna yazılır (RLS korumalı)
+- 🖼️ Proje detay sayfalarında galeri ve video desteği
+- 🌙 Koyu / açık tema
+- 📱 Mobil öncelikli responsive tasarım
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Teknoloji Yığını
 
-## Expanding the Oxlint configuration
+| Katman | Teknoloji |
+|--------|-----------|
+| Frontend | React 18, TypeScript, Vite |
+| Stil | Tailwind CSS |
+| Routing | React Router v6 |
+| i18n | i18next + react-i18next |
+| Backend / DB | Supabase (PostgreSQL + RLS) |
+| Deploy | Vercel |
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Yerel Geliştirme
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+cp .env.example .env.local   # Supabase URL ve anon key'i doldur
+npm run dev                  # http://localhost:5173
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Diğer komutlar: `npm run build`, `npm run preview`, `npm run typecheck`
+
+## İletişim
+
+- 🌐 [akifayan.com](https://akifayan.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/muhammet-akif-ayan)
+- 🐙 [GitHub](https://github.com/akifayn)

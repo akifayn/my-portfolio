@@ -364,7 +364,7 @@ Vercel Dashboard → Proje → Settings → Environment Variables:
 
 Supabase Dashboard → Authentication → URL Configuration:
 
-- **Site URL:** `https://your-portfolio.vercel.app`
+- **Site URL:** `https://akifayan.com`
 
 - [ ] `npm run typecheck` hatasız geçiyor
 - [ ] Tüm çeviri anahtarları her iki dilde mevcut
