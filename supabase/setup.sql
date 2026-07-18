@@ -128,10 +128,8 @@ insert into public.projects
 select
   'Kişisel Portfolyo Sitesi',
   'Personal Portfolio Website',
-  'İki dilli, Supabase destekli, tamamen dinamik portfolyo sitesi. İçerik veritabanından gelir;
-  İznik çinisinden ilham alan özgün bir arayüze sahiptir.',
-  'A bilingual, fully dynamic portfolio powered by Supabase. Content is served from the
-  database, with a unique interface inspired by Iznik tiles.',
+  'İki dilli, Supabase destekli, tamamen dinamik portfolyo sitesi. İçerik veritabanından gelir.',
+  'A bilingual, fully dynamic portfolio powered by Supabase. Content is served from the database.',
   array['React','TypeScript','Tailwind CSS','Supabase','Vite'],
   null, null, null, '{}', null, true, 1
 where not exists (select 1 from public.projects where title_en = 'Personal Portfolio Website');
@@ -342,7 +340,11 @@ where title_en = 'Mushroom Classification';
 -- ─────────────────────────────────────────────────────────────────────────────
 
 update public.projects
-set image_url = '/images/projects/portfolio-website.png'
+set
+  image_url      = '/images/projects/portfolio-website.png',
+  -- Çini/İznik göndermesi açıklamadan çıkarıldı (2026-07-18)
+  description_tr = 'İki dilli, Supabase destekli, tamamen dinamik portfolyo sitesi. İçerik veritabanından gelir.',
+  description_en = 'A bilingual, fully dynamic portfolio powered by Supabase. Content is served from the database.'
 where title_en = 'Personal Portfolio Website';
 
 

@@ -77,7 +77,6 @@ export default function HomePage() {
           />
           <div className="max-w-xl space-y-4 leading-relaxed text-inkdark/80 dark:text-frost/80">
             <p>{t('about.p1')}</p>
-            <p>{t('about.p2')}</p>
             <a
               href="/cv/muhammet-akif-ayan-cv.pdf"
               download
