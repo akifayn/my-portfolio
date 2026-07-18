@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import Emblem from './Emblem'
 import type { Project } from '../types/database.types'
 
 interface ProjectCardProps {
@@ -18,7 +17,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const showImage = project.image_url && !imageFailed
 
   return (
-    <article className="clip-notch group flex flex-col overflow-hidden border border-inkdark/10 bg-white transition-all hover:border-crimson hover:shadow-glow-crimson dark:border-frost/10 dark:bg-surface">
+    <article className="glass-panel group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:!border-cyan hover:shadow-glow-cyan">
       <Link to={`/projects/${project.id}`} className="flex flex-1 flex-col">
         {showImage ? (
           <img
@@ -26,19 +25,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={title}
             loading="lazy"
             onError={() => setImageFailed(true)}
-            className="aspect-video w-full border-b border-inkdark/10 object-cover dark:border-frost/10"
+            className="aspect-video w-full border-b border-ink/10 object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
           />
         ) : (
-          <div className="flex aspect-video w-full items-center justify-center border-b border-inkdark/10 bg-inkdark/[0.03] dark:border-frost/10 dark:bg-frost/[0.03]">
-            <Emblem className="h-12 w-12 text-inkdark/20 transition-colors group-hover:text-crimson/40 dark:text-frost/20" />
+          <div className="flex aspect-video w-full items-center justify-center border-b border-ink/10 bg-ink/[0.04]">
+            <span
+              className="font-mono text-4xl font-bold text-ink/15 transition-colors group-hover:text-cyan/50"
+              aria-hidden="true"
+            >
+              //
+            </span>
           </div>
         )}
 
-        <div className="flex flex-1 flex-col gap-3 p-5">
-          <h3 className="font-display text-lg font-bold uppercase tracking-wide transition-colors group-hover:text-crimson">
+        <div className="flex flex-1 flex-col gap-3 p-6">
+          <h3 className="font-display text-lg font-semibold tracking-tight transition-colors group-hover:text-cyan">
             {title}
           </h3>
-          <p className="flex-1 text-sm leading-relaxed text-inkdark/70 dark:text-muted">
+          <p className="flex-1 text-sm leading-relaxed text-mut">
             {description}
           </p>
 
@@ -47,7 +51,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               {project.tech_stack.map((tech) => (
                 <li
                   key={tech}
-                  className="border border-volt/30 bg-volt/5 px-2 py-0.5 font-mono text-xs text-volt"
+                  className="rounded-sm border-l-2 border-cyan bg-ink/5 px-2 py-1 font-mono text-[10px] text-ink/80 dark:bg-white/5"
                 >
                   {tech}
                 </li>
@@ -57,10 +61,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </Link>
 
-      <div className="flex gap-4 border-t border-inkdark/10 px-5 py-3 font-mono text-xs uppercase tracking-[0.15em] dark:border-frost/10">
+      <div className="flex gap-6 border-t border-ink/10 px-6 py-3 font-sans text-xs font-bold uppercase tracking-[0.1em]">
         <Link
           to={`/projects/${project.id}`}
-          className="text-crimson underline-offset-4 hover:underline"
+          className="text-cyan underline-offset-4 hover:underline"
         >
           {t('projects.details')}
         </Link>
@@ -69,7 +73,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={project.github_url}
             target="_blank"
             rel="noreferrer"
-            className="text-inkdark/60 underline-offset-4 hover:text-volt hover:underline dark:text-muted dark:hover:text-volt"
+            className="text-dim transition-colors hover:text-ink"
           >
             {t('projects.viewCode')}
           </a>
@@ -79,7 +83,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={project.live_url}
             target="_blank"
             rel="noreferrer"
-            className="text-inkdark/60 underline-offset-4 hover:text-volt hover:underline dark:text-muted dark:hover:text-volt"
+            className="text-dim transition-colors hover:text-ink"
           >
             {t('projects.viewLive')}
           </a>

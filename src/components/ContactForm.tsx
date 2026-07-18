@@ -4,8 +4,9 @@ import { sendMessage } from '../services/messages.service'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
+// Tasarım dili: alt çizgili minimal input; odakta camgöbeği parlar
 const inputClass =
-  'clip-notch w-full border border-inkdark/20 bg-white px-3 py-2 text-sm placeholder:text-inkdark/40 focus:border-volt dark:border-frost/20 dark:bg-surface dark:placeholder:text-muted'
+  'w-full border-0 border-b-2 border-ink/20 bg-transparent px-1 py-2 text-sm transition-all placeholder:text-dim focus:border-cyan focus:shadow-[0_8px_12px_-10px_rgba(0,218,243,0.5)] focus:ring-0 dark:border-white/20'
 
 export default function ContactForm() {
   const { t } = useTranslation()
@@ -31,12 +32,11 @@ export default function ContactForm() {
     }
   }
 
-  const labelClass =
-    'font-mono text-xs uppercase tracking-[0.15em] text-inkdark/60 dark:text-muted'
+  const labelClass = 'font-sans text-xs font-bold uppercase tracking-[0.1em] text-dim'
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      <div className="grid gap-6 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5">
           <span className={labelClass}>{t('contact.name')}</span>
           <input name="name" type="text" required maxLength={120} className={inputClass} />
@@ -60,18 +60,18 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="clip-notch self-start bg-crimson px-7 py-2.5 font-mono text-xs font-medium uppercase tracking-[0.15em] text-white transition-all hover:shadow-glow-crimson disabled:cursor-not-allowed disabled:opacity-60"
+        className="self-start rounded bg-cyanbright px-8 py-4 font-sans text-xs font-bold uppercase tracking-[0.1em] text-terminal shadow-glow-cyan transition-all hover:shadow-glow-cyan-strong disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === 'sending' ? t('contact.sending') : t('contact.send')}
       </button>
 
       {status === 'success' && (
-        <p role="status" className="text-sm font-medium text-volt">
+        <p role="status" className="font-mono text-sm text-cyan">
           {t('contact.success')}
         </p>
       )}
       {status === 'error' && (
-        <p role="alert" className="text-sm font-medium text-crimson">
+        <p role="alert" className="font-mono text-sm text-pink">
           {t('contact.error')}
         </p>
       )}

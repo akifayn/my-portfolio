@@ -29,3 +29,7 @@ dist-ssr
 .vercel
 .env*
 !.env.example
+
+
+# Stitch tasarim referansi (yerel)
+stitch_akif_ayan_portfolio_redesign/

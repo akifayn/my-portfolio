@@ -14,10 +14,12 @@ function NotFound() {
   const { t } = useTranslation()
   return (
     <section className="mx-auto max-w-5xl px-4 py-24 text-center sm:px-6">
-      <h1 className="mb-6 font-display text-3xl font-bold uppercase">{t('notFound.title')}</h1>
+      <h1 className="mb-6 font-display text-3xl font-bold uppercase tracking-[-0.02em]">
+        {t('notFound.title')}
+      </h1>
       <Link
         to="/"
-        className="font-mono text-xs uppercase tracking-[0.15em] text-volt underline-offset-4 hover:underline"
+        className="font-sans text-xs font-bold uppercase tracking-[0.1em] text-cyan underline-offset-4 hover:underline"
       >
         {t('notFound.goHome')}
       </Link>
