@@ -111,7 +111,7 @@ create policy "Anyone can read published posts"
 -- ─────────────────────────────────────────────────────────────────────────────
 -- BÖLÜM 3: PROJE KAYITLARI (SEED)
 -- Ne yapar: Önce aynı başlıklı mükerrer kayıtları temizler (en eskisi kalır),
--- sonra 7 projeyi ekler. Aynı İngilizce başlıkta kayıt varsa atlar,
+-- sonra 8 projeyi ekler. Aynı İngilizce başlıkta kayıt varsa atlar,
 -- bu sayede script tekrar çalıştırıldığında mükerrer kayıt oluşmaz.
 -- ─────────────────────────────────────────────────────────────────────────────
 
@@ -222,6 +222,39 @@ select
   'https://github.com/akifayn/TemperatureHumidityWarning',
   null, null, '{}', null, false, 7
 where not exists (select 1 from public.projects where title_en = 'Temperature & Humidity Alert System');
+
+
+-- 3.8 · Liman MYS Araç Seti (2026-07-18 eklendi)
+-- Görseller GitHub README'sinden indirilip public/images/projects/liman-toolkit/
+-- altına kopyalandı; kart görseli Liman web arayüzü ekranıdır.
+insert into public.projects
+  (title_tr, title_en, description_tr, description_en, tech_stack, github_url, live_url, image_url, gallery_urls, video_url, is_featured, order_index)
+select
+  'Liman MYS Araç Seti',
+  'Liman MYS Toolkit',
+  'HAVELSAN Liman Merkezi Yönetim Sistemi için Bash araç seti. Tek komutla Node.js, PHP ve PostgreSQL depolarını ekleyip Liman paketini kurar; kaldırma, yönetici parolası sıfırlama, geçici giriş bilgisi alma ve web arayüzüne doğrudan erişim komutları sunar. Tüm işlemler zaman damgalı olarak log dosyasına kaydedilir.',
+  'A Bash toolkit for the HAVELSAN Liman Central Management System. A single command adds the Node.js, PHP and PostgreSQL repositories and installs the Liman package; it also provides commands for removal, admin password reset, retrieving temporary credentials and opening the web interface directly. Every operation is logged with timestamps.',
+  array['Bash','Linux','Liman MYS','PostgreSQL'],
+  'https://github.com/akifayn/Liman-MYS-Toolkit',
+  null,
+  '/images/projects/liman-toolkit.png',
+  array[
+    '/images/projects/liman-toolkit/01-temp-password.png',
+    '/images/projects/liman-toolkit/02-initial-setup.png',
+    '/images/projects/liman-toolkit/03-add-user.png',
+    '/images/projects/liman-toolkit/04-install-complete.png',
+    '/images/projects/liman-toolkit/05-web-interface.png',
+    '/images/projects/liman-toolkit/06-ip-output.png',
+    '/images/projects/liman-toolkit/07-help-command.png',
+    '/images/projects/liman-toolkit/08-administrator.png',
+    '/images/projects/liman-toolkit/09-password-reset.png',
+    '/images/projects/liman-toolkit/10-log-file.jpg'
+  ],
+  null, true, 8
+where not exists (
+  select 1 from public.projects
+  where title_en in ('Liman MYS Toolkit', 'Liman MYS Araç Seti')
+);
 
 
 -- ─────────────────────────────────────────────────────────────────────────────
