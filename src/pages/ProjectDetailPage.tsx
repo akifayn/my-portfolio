@@ -161,7 +161,7 @@ export default function ProjectDetailPage() {
                     src={url}
                     alt={title}
                     loading="lazy"
-                    className="w-full rounded-lg border border-ink/10 grayscale transition-all duration-300 hover:border-cyan hover:shadow-glow-cyan group-hover:grayscale-0 dark:border-white/10"
+                    className="w-full rounded-lg border border-ink/10 transition-all duration-300 hover:border-cyan hover:shadow-glow-cyan dark:border-white/10"
                   />
                 </a>
               </li>

@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const showImage = project.image_url && !imageFailed
 
   return (
-    <article className="glass-panel group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:!border-cyan hover:shadow-glow-cyan">
+    <article className="glass-panel group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.03] hover:!border-cyan hover:shadow-glow-cyan">
       <Link to={`/projects/${project.id}`} className="flex flex-1 flex-col">
         {showImage ? (
           <img
@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={title}
             loading="lazy"
             onError={() => setImageFailed(true)}
-            className="aspect-video w-full border-b border-ink/10 object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+            className="aspect-video w-full border-b border-ink/10 object-cover"
           />
         ) : (
           <div className="flex aspect-video w-full items-center justify-center border-b border-ink/10 bg-ink/[0.04]">

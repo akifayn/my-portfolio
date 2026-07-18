@@ -103,7 +103,7 @@ export default function HomePage() {
                 width="160"
                 height="160"
                 loading="lazy"
-                className="aspect-square w-full rounded-lg object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+                className="aspect-square w-full rounded-lg object-cover"
               />
             </div>
           </div>
