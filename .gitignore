@@ -33,3 +33,6 @@ dist-ssr
 
 # Stitch tasarim referansi (yerel)
 stitch_akif_ayan_portfolio_redesign/
+
+# messages tablosu yedekleri (kişisel veri icerir)
+supabase/backups/

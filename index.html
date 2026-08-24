@@ -26,12 +26,7 @@
       content="Muhammet Akif Ayan — Yapay Zekâ & Full Stack Geliştirici. Projeler, beceriler ve iletişim."
     />
     <meta name="twitter:image" content="https://akifayan.com/images/projects/portfolio-website.png" />
-    <script>
-      // Tema tercihi: kayıtlı değer varsa onu, yoksa koyu temayı kullan (FOUC önlemek için render'dan önce)
-      if (localStorage.getItem('theme') === 'light') {
-        document.documentElement.classList.remove('dark')
-      }
-    </script>
+    <script src="/theme-init.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
