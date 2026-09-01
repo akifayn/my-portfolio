@@ -3,47 +3,47 @@
 @tailwind utilities;
 
 @layer base {
-  /* Açık tema: Cyber-Minimalist paletin aydınlık karşılığı */
+  /* Açık tema: Stitch "Studio Neura" paletinin aydınlık karşılığı */
   :root {
-    --bg: 243 246 247;
-    --ink: 15 26 32;
-    --mut: 55 74 84;
-    --dim: 91 107 118;
-    --cyan: 8 111 133;
-    --pink: 217 27 70;
-    --gold: 158 116 8;
-    --panel: rgba(255, 255, 255, 0.65);
-    --panel-edge: rgba(15, 26, 32, 0.1);
-    --panel-highlight: rgba(255, 255, 255, 0.9);
-    --grid-line: rgba(15, 26, 32, 0.05);
+    --bg: 250 250 251;
+    --surface-bright: 255 255 255;
+    --surface-container-low: 244 244 246;
+    --ink: 26 26 30;
+    --mut: 71 69 79;
+    --dim: 100 98 110;
+    --cyan: 53 51 176;
+    --danger: 185 28 28;
+    --panel: rgba(255, 255, 255, 0.7);
+    --panel-edge: rgba(20, 20, 30, 0.08);
+    --panel-highlight: rgba(20, 20, 30, 0.16);
+    --grid-line: rgba(20, 20, 30, 0.08);
   }
 
-  /* Koyu tema: Stitch tasarımındaki birebir değerler */
+  /* Koyu tema: Stitch "Studio Neura" tasarımındaki birebir M3 token değerleri */
   .dark {
-    --bg: 11 15 20;
-    --ink: 220 228 229;
-    --mut: 186 201 204;
-    --dim: 148 163 184;
-    --cyan: 0 218 243;
-    --pink: 255 45 85;
-    --gold: 243 191 38;
-    --panel: rgba(26, 35, 50, 0.6);
-    --panel-edge: rgba(255, 255, 255, 0.1);
+    --bg: 19 19 20;
+    --surface-bright: 58 57 58;
+    --surface-container-low: 28 27 28;
+    --ink: 229 226 227;
+    --mut: 199 196 214;
+    --dim: 145 143 159;
+    --cyan: 193 193 255;
+    --danger: 255 180 171;
+    --panel: rgba(22, 22, 24, 0.7);
+    --panel-edge: rgba(255, 255, 255, 0.08);
     --panel-highlight: rgba(255, 255, 255, 0.2);
-    --grid-line: rgba(186, 201, 204, 0.05);
+    --grid-line: rgba(199, 196, 214, 0.1);
   }
 
   body {
     @apply bg-base font-sans text-ink antialiased;
-    /* Zemindeki 40px'lik teknik ızgara — tasarımın imzası */
-    background-image:
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 40px 40px;
+    /* Zemindeki noktalı doku — editöryal/kinetik kimliğin imzası */
+    background-image: radial-gradient(var(--grid-line) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
   }
 
   ::selection {
-    @apply bg-cyanbright/80 text-terminal;
+    @apply bg-cyanbright/80 text-white;
   }
 
   :focus-visible {
@@ -62,13 +62,57 @@
 }
 
 @layer utilities {
-  /* Glassmorphism panel: yarı saydam dolgu + blur, üst/sol kenarda ışık vurgusu */
+  /* Glassmorphism panel: Stitch "Studio Neura" cam kart tarifi */
   .glass-panel {
     background: var(--panel);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--panel-edge);
-    border-top-color: var(--panel-highlight);
-    border-left-color: var(--panel-highlight);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .glass-panel:hover {
+    border-color: var(--panel-highlight);
+  }
+
+  /* Sonsuz kayan tech-stack şeridi: içerik iki kez basılıp %50 kaydırılır */
+  .marquee-track {
+    animation: marquee 22s linear infinite;
+  }
+
+  /* Hero'daki dev "hayalet" başlık şeridi: aynı teknik, daha yavaş */
+  .marquee-track-slow {
+    animation: marquee 34s linear infinite;
+  }
+
+  /* Ters yönde kayan şerit — kapanış CTA'sındaki çapraz bantlar için */
+  .marquee-track-reverse {
+    animation: marquee-reverse 26s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .marquee-track-slow,
+    .marquee-track-reverse {
+      animation: none;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 }

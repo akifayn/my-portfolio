@@ -22,10 +22,10 @@ export default function Navbar() {
   const otherLang = i18n.resolvedLanguage === 'en' ? 'tr' : 'en'
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `pb-1 font-sans text-xs font-bold uppercase tracking-[0.1em] transition-colors ${
+    `rounded px-3 py-2 font-sans text-sm uppercase tracking-[0.1em] transition-colors ${
       isActive
-        ? 'border-b-2 border-cyan text-cyan'
-        : 'border-b-2 border-transparent text-mut hover:text-cyan'
+        ? 'font-bold text-cyan'
+        : 'font-normal text-mut hover:bg-surface-container-low hover:text-ink dark:hover:text-white'
     }`
 
   return (

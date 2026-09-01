@@ -1,12 +1,24 @@
 import { useEffect, useState } from 'react'
+import { motion, type Variants } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import Reveal from '../components/Reveal'
 import { isSupabaseConfigured } from '../lib/supabase'
 import { getReadme, parseGithubUrl } from '../services/github.service'
 import { getProjectById } from '../services/projects.service'
 import type { Project } from '../types/database.types'
+
+const staggerContainer: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06 } },
+}
+
+const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+}
 
 export default function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -106,56 +118,63 @@ export default function ProjectDetailPage() {
         ← {t('projects.back')}
       </Link>
 
-      <h1 className="mb-4 mt-8 flex items-center gap-4 font-display text-3xl font-bold uppercase tracking-[-0.02em] sm:text-4xl">
-        <span className="h-10 w-2 shrink-0 bg-cyan" aria-hidden="true" />
-        {title}
-      </h1>
-      <p className="mb-6 max-w-2xl text-lg leading-relaxed text-mut">{description}</p>
+      <Reveal delay={0.05}>
+        <h1 className="mb-4 mt-8 flex items-center gap-4 font-display text-3xl font-bold uppercase tracking-[-0.02em] sm:text-4xl">
+          <span className="h-10 w-2 shrink-0 bg-cyan" aria-hidden="true" />
+          {title}
+        </h1>
+        <p className="mb-6 max-w-2xl text-lg leading-relaxed text-mut">{description}</p>
 
-      {project.tech_stack.length > 0 && (
-        <ul className="mb-8 flex flex-wrap gap-2">
-          {project.tech_stack.map((tech) => (
-            <li
-              key={tech}
-              className="rounded-sm border-l-2 border-cyan bg-ink/5 px-2 py-1 font-mono text-xs text-ink/80 dark:bg-white/5"
+        {project.tech_stack.length > 0 && (
+          <ul className="mb-8 flex flex-wrap gap-2">
+            {project.tech_stack.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-sm border-l-2 border-cyan bg-ink/5 px-2 py-1 font-mono text-xs text-ink/80 dark:bg-white/5"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="mb-12 flex flex-wrap gap-4 font-sans text-xs font-bold uppercase tracking-[0.1em]">
+          {project.github_url && (
+            <a
+              href={project.github_url}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded bg-cyanbright px-6 py-3 text-white shadow-glow-cyan transition-all hover:scale-[1.03] hover:shadow-glow-cyan-strong"
             >
-              {tech}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="mb-12 flex flex-wrap gap-4 font-sans text-xs font-bold uppercase tracking-[0.1em]">
-        {project.github_url && (
-          <a
-            href={project.github_url}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded bg-cyanbright px-6 py-3 text-terminal shadow-glow-cyan transition-all hover:shadow-glow-cyan-strong"
-          >
-            {t('projects.viewCode')}
-          </a>
-        )}
-        {project.live_url && (
-          <a
-            href={project.live_url}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded border-2 border-cyan/30 px-6 py-3 text-cyan backdrop-blur-sm transition-all hover:bg-cyan/10"
-          >
-            {t('projects.viewLive')}
-          </a>
-        )}
-      </div>
+              {t('projects.viewCode')}
+            </a>
+          )}
+          {project.live_url && (
+            <a
+              href={project.live_url}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded border-2 border-cyan/30 px-6 py-3 text-cyan backdrop-blur-sm transition-all hover:scale-[1.03] hover:bg-cyan/10"
+            >
+              {t('projects.viewLive')}
+            </a>
+          )}
+        </div>
+      </Reveal>
 
       {gallery.length > 0 && (
         <div className="mb-12">
           <h2 className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.2em] text-dim">
             {t('projects.gallery')}
           </h2>
-          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <motion.ul
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
             {gallery.map((url) => (
-              <li key={url}>
+              <motion.li key={url} variants={staggerItem}>
                 <a href={url} target="_blank" rel="noreferrer" className="group block">
                   <img
                     src={url}
@@ -164,14 +183,14 @@ export default function ProjectDetailPage() {
                     className="w-full rounded-lg border border-ink/10 transition-all duration-300 hover:border-cyan hover:shadow-glow-cyan dark:border-white/10"
                   />
                 </a>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       )}
 
       {project.video_url && (
-        <div className="mb-12">
+        <Reveal className="mb-12">
           <h2 className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.2em] text-dim">
             {t('projects.demoVideo')}
           </h2>
@@ -191,20 +210,22 @@ export default function ProjectDetailPage() {
               className="max-h-[70vh] rounded-xl border border-ink/10 dark:border-white/10"
             />
           )}
-        </div>
+        </Reveal>
       )}
 
       {readme && (
-        <article className="glass-panel rounded-xl p-6 sm:p-8">
-          <h2 className="mb-6 border-b border-ink/10 pb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-dim dark:border-white/10">
-            README.md — GitHub
-          </h2>
-          <div className="prose prose-sm max-w-none overflow-x-auto dark:prose-invert prose-a:text-cyan prose-img:max-w-full">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={transformUrl}>
-              {readme}
-            </ReactMarkdown>
-          </div>
-        </article>
+        <Reveal>
+          <article className="glass-panel rounded-xl p-6 sm:p-8">
+            <h2 className="mb-6 border-b border-ink/10 pb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-dim dark:border-white/10">
+              README.md — GitHub
+            </h2>
+            <div className="prose prose-sm max-w-none overflow-x-auto dark:prose-invert prose-a:text-cyan prose-img:max-w-full">
+              <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={transformUrl}>
+                {readme}
+              </ReactMarkdown>
+            </div>
+          </article>
+        </Reveal>
       )}
       {readmeFailed && (
         <p className="text-sm text-dim">{t('projects.readmeError')}</p>

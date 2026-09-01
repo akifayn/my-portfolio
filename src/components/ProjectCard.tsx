@@ -20,13 +20,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <article className="glass-panel group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.03] hover:!border-cyan hover:shadow-glow-cyan">
       <Link to={`/projects/${project.id}`} className="flex flex-1 flex-col">
         {showImage ? (
-          <img
-            src={project.image_url ?? undefined}
-            alt={title}
-            loading="lazy"
-            onError={() => setImageFailed(true)}
-            className="aspect-video w-full border-b border-ink/10 object-cover"
-          />
+          <div className="overflow-hidden border-b border-ink/10">
+            <img
+              src={project.image_url ?? undefined}
+              alt={title}
+              loading="lazy"
+              onError={() => setImageFailed(true)}
+              className="aspect-video w-full object-cover opacity-70 mix-blend-luminosity transition-[transform,opacity] duration-500 group-hover:scale-105 group-hover:opacity-100 group-hover:mix-blend-normal"
+            />
+          </div>
         ) : (
           <div className="flex aspect-video w-full items-center justify-center border-b border-ink/10 bg-ink/[0.04]">
             <span

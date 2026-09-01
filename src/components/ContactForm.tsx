@@ -82,7 +82,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="self-start rounded bg-cyanbright px-8 py-4 font-sans text-xs font-bold uppercase tracking-[0.1em] text-terminal shadow-glow-cyan transition-all hover:shadow-glow-cyan-strong disabled:cursor-not-allowed disabled:opacity-60"
+        className="self-start rounded bg-cyanbright px-8 py-4 font-sans text-xs font-bold uppercase tracking-[0.1em] text-white shadow-glow-cyan transition-all hover:scale-[1.03] hover:shadow-glow-cyan-strong disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
       >
         {status === 'sending' ? t('contact.sending') : t('contact.send')}
       </button>
@@ -93,7 +93,7 @@ export default function ContactForm() {
         </p>
       )}
       {status === 'error' && (
-        <p role="alert" className="font-mono text-sm text-pink">
+        <p role="alert" className="font-mono text-sm text-danger">
           {t('contact.error')}
         </p>
       )}
