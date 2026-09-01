@@ -50,7 +50,7 @@ export default function CoreCapabilities() {
           <motion.div
             key={card.key}
             variants={staggerItem}
-            className={`glass-panel group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-sm p-8 ${card.span}`}
+            className={`glass-panel group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-lg p-8 ${card.span}`}
           >
             <div className="text-cyan">{card.icon}</div>
             <div className="mt-auto pt-6">

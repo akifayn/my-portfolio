@@ -331,7 +331,7 @@ export default function HomePage() {
                   <li className="relative flex flex-col items-center md:flex-row md:justify-between">
                     <div className={`w-full md:w-5/12 ${isLeft ? 'md:order-1' : 'md:order-3'}`}>
                       <div
-                        className={`glass-panel rounded-sm p-6 sm:p-8 ${isLeft ? 'md:text-right' : 'md:text-left'}`}
+                        className={`glass-panel rounded-lg p-6 sm:p-8 ${isLeft ? 'md:text-right' : 'md:text-left'}`}
                       >
                         <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-cyan">
                           {t(`about.timeline.${key}.year`)}

@@ -24,7 +24,7 @@ export default function ProjectGalleryCard({ project, className = '', large = fa
   return (
     <Link
       to={`/projects/${project.id}`}
-      className={`glass-panel group relative block overflow-hidden rounded-sm ${className}`}
+      className={`glass-panel group relative block overflow-hidden rounded-lg ${className}`}
     >
       {showImage ? (
         <img

@@ -44,7 +44,7 @@ export default function WorkingStyle() {
           <motion.div
             key={card.key}
             variants={staggerItem}
-            className="glass-panel rounded-sm p-8"
+            className="glass-panel rounded-lg p-8"
           >
             <div className="text-cyan">{card.icon}</div>
             <h3 className="mt-6 font-display text-xl font-semibold tracking-tight text-ink">
