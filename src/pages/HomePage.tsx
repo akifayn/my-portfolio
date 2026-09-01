@@ -84,7 +84,7 @@ export default function HomePage() {
           variants={heroContainer}
           className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-6 px-4 py-24 sm:px-6 sm:py-32 md:grid-cols-12 md:min-h-[80vh]"
         >
-          <div className="space-y-8 md:col-span-8">
+          <div className="space-y-8 md:col-span-8 lg:ml-36 xl:ml-20 2xl:ml-0">
             <div className="space-y-6">
               <motion.div variants={heroItem} className="flex flex-wrap items-center gap-3">
                 <p className="font-mono text-sm uppercase tracking-widest text-cyan">
